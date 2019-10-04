@@ -1,0 +1,2028 @@
+//Scene file do not make any changes here.
+global frontend_base_width = 896
+global frontend_base_height = 1152
+global frontend_device_width = 896
+global frontend_device_height = 1152
+global frontend_fadesprite, frontend_fadeimage as integer
+global frontend_tween# as float
+global frontend_loaded = 0
+global frontend_images as integer[2]
+global frontend_sprites as integer[303]
+global frontend_sprites_count_x as float[303]
+global frontend_sprites_count_y as float[303]
+global frontend_lights as integer[]
+function frontend_setup()
+	if frontend_loaded = 1 then exitfunction
+	frontend_loaded = 1
+	SetVirtualResolution(frontend_base_width,frontend_base_height)
+	SetWindowSize(frontend_device_width,frontend_device_height,0)
+	SetClearColor(0,0,0)
+	SetPhysicsWallTop(1)
+	SetPhysicsWallBottom(1)
+	SetPhysicsWallLeft(1)
+	SetPhysicsWallRight(1)
+	frontend_images[1] = LoadImage("base.png")
+	SetImageMinFilter(frontend_images[1],0)
+	SetImageMagFilter(frontend_images[1],0)
+	frontend_sprites[1] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[1] )
+	SetSpritePosition(frontend_sprites[1],208.000000,352.000000)
+	SetSpriteSize(frontend_sprites[1],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[1],5000)
+	SetSpriteAnimation(frontend_sprites[1],32,32,48)
+	SetSpriteFrame(frontend_sprites[1],25)
+	SetSpriteUVBorder(frontend_sprites[1], 0.5)
+	frontend_sprites[2] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[2] )
+	SetSpritePosition(frontend_sprites[2],224.000000,352.000000)
+	SetSpriteSize(frontend_sprites[2],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[2],5000)
+	SetSpriteAnimation(frontend_sprites[2],32,32,48)
+	SetSpriteFrame(frontend_sprites[2],25)
+	SetSpriteUVBorder(frontend_sprites[2], 0.5)
+	frontend_sprites[3] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[3] )
+	SetSpritePosition(frontend_sprites[3],240.000000,352.000000)
+	SetSpriteSize(frontend_sprites[3],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[3],5000)
+	SetSpriteAnimation(frontend_sprites[3],32,32,48)
+	SetSpriteFrame(frontend_sprites[3],25)
+	SetSpriteUVBorder(frontend_sprites[3], 0.5)
+	frontend_sprites[4] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[4] )
+	SetSpritePosition(frontend_sprites[4],256.000000,352.000000)
+	SetSpriteSize(frontend_sprites[4],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[4],5000)
+	SetSpriteAnimation(frontend_sprites[4],32,32,48)
+	SetSpriteFrame(frontend_sprites[4],25)
+	SetSpriteUVBorder(frontend_sprites[4], 0.5)
+	frontend_sprites[5] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[5] )
+	SetSpritePosition(frontend_sprites[5],272.000000,352.000000)
+	SetSpriteSize(frontend_sprites[5],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[5],5000)
+	SetSpriteAnimation(frontend_sprites[5],32,32,48)
+	SetSpriteFrame(frontend_sprites[5],25)
+	SetSpriteUVBorder(frontend_sprites[5], 0.5)
+	frontend_sprites[6] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[6] )
+	SetSpritePosition(frontend_sprites[6],288.000000,352.000000)
+	SetSpriteSize(frontend_sprites[6],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[6],5000)
+	SetSpriteAnimation(frontend_sprites[6],32,32,48)
+	SetSpriteFrame(frontend_sprites[6],25)
+	SetSpriteUVBorder(frontend_sprites[6], 0.5)
+	frontend_sprites[7] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[7] )
+	SetSpritePosition(frontend_sprites[7],304.000000,352.000000)
+	SetSpriteSize(frontend_sprites[7],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[7],5000)
+	SetSpriteAnimation(frontend_sprites[7],32,32,48)
+	SetSpriteFrame(frontend_sprites[7],25)
+	SetSpriteUVBorder(frontend_sprites[7], 0.5)
+	frontend_sprites[8] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[8] )
+	SetSpritePosition(frontend_sprites[8],320.000000,352.000000)
+	SetSpriteSize(frontend_sprites[8],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[8],5000)
+	SetSpriteAnimation(frontend_sprites[8],32,32,48)
+	SetSpriteFrame(frontend_sprites[8],25)
+	SetSpriteUVBorder(frontend_sprites[8], 0.5)
+	frontend_sprites[9] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[9] )
+	SetSpritePosition(frontend_sprites[9],336.000000,352.000000)
+	SetSpriteSize(frontend_sprites[9],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[9],5000)
+	SetSpriteAnimation(frontend_sprites[9],32,32,48)
+	SetSpriteFrame(frontend_sprites[9],25)
+	SetSpriteUVBorder(frontend_sprites[9], 0.5)
+	frontend_sprites[10] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[10] )
+	SetSpritePosition(frontend_sprites[10],352.000000,352.000000)
+	SetSpriteSize(frontend_sprites[10],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[10],5000)
+	SetSpriteAnimation(frontend_sprites[10],32,32,48)
+	SetSpriteFrame(frontend_sprites[10],25)
+	SetSpriteUVBorder(frontend_sprites[10], 0.5)
+	frontend_sprites[11] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[11] )
+	SetSpritePosition(frontend_sprites[11],368.000000,352.000000)
+	SetSpriteSize(frontend_sprites[11],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[11],5000)
+	SetSpriteAnimation(frontend_sprites[11],32,32,48)
+	SetSpriteFrame(frontend_sprites[11],25)
+	SetSpriteUVBorder(frontend_sprites[11], 0.5)
+	frontend_sprites[12] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[12] )
+	SetSpritePosition(frontend_sprites[12],384.000000,352.000000)
+	SetSpriteSize(frontend_sprites[12],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[12],5000)
+	SetSpriteAnimation(frontend_sprites[12],32,32,48)
+	SetSpriteFrame(frontend_sprites[12],25)
+	SetSpriteUVBorder(frontend_sprites[12], 0.5)
+	frontend_sprites[13] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[13] )
+	SetSpritePosition(frontend_sprites[13],400.000000,352.000000)
+	SetSpriteSize(frontend_sprites[13],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[13],5000)
+	SetSpriteAnimation(frontend_sprites[13],32,32,48)
+	SetSpriteFrame(frontend_sprites[13],25)
+	SetSpriteUVBorder(frontend_sprites[13], 0.5)
+	frontend_sprites[14] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[14] )
+	SetSpritePosition(frontend_sprites[14],416.000000,352.000000)
+	SetSpriteSize(frontend_sprites[14],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[14],5000)
+	SetSpriteAnimation(frontend_sprites[14],32,32,48)
+	SetSpriteFrame(frontend_sprites[14],25)
+	SetSpriteUVBorder(frontend_sprites[14], 0.5)
+	frontend_sprites[15] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[15] )
+	SetSpritePosition(frontend_sprites[15],432.000000,352.000000)
+	SetSpriteSize(frontend_sprites[15],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[15],5000)
+	SetSpriteAnimation(frontend_sprites[15],32,32,48)
+	SetSpriteFrame(frontend_sprites[15],25)
+	SetSpriteUVBorder(frontend_sprites[15], 0.5)
+	frontend_sprites[16] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[16] )
+	SetSpritePosition(frontend_sprites[16],448.000000,352.000000)
+	SetSpriteSize(frontend_sprites[16],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[16],5000)
+	SetSpriteAnimation(frontend_sprites[16],32,32,48)
+	SetSpriteFrame(frontend_sprites[16],25)
+	SetSpriteUVBorder(frontend_sprites[16], 0.5)
+	frontend_sprites[17] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[17] )
+	SetSpritePosition(frontend_sprites[17],464.000000,352.000000)
+	SetSpriteSize(frontend_sprites[17],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[17],5000)
+	SetSpriteAnimation(frontend_sprites[17],32,32,48)
+	SetSpriteFrame(frontend_sprites[17],25)
+	SetSpriteUVBorder(frontend_sprites[17], 0.5)
+	frontend_sprites[18] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[18] )
+	SetSpritePosition(frontend_sprites[18],480.000000,352.000000)
+	SetSpriteSize(frontend_sprites[18],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[18],5000)
+	SetSpriteAnimation(frontend_sprites[18],32,32,48)
+	SetSpriteFrame(frontend_sprites[18],25)
+	SetSpriteUVBorder(frontend_sprites[18], 0.5)
+	frontend_sprites[19] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[19] )
+	SetSpritePosition(frontend_sprites[19],496.000000,352.000000)
+	SetSpriteSize(frontend_sprites[19],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[19],5000)
+	SetSpriteAnimation(frontend_sprites[19],32,32,48)
+	SetSpriteFrame(frontend_sprites[19],25)
+	SetSpriteUVBorder(frontend_sprites[19], 0.5)
+	frontend_sprites[20] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[20] )
+	SetSpritePosition(frontend_sprites[20],512.000000,352.000000)
+	SetSpriteSize(frontend_sprites[20],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[20],5000)
+	SetSpriteAnimation(frontend_sprites[20],32,32,48)
+	SetSpriteFrame(frontend_sprites[20],25)
+	SetSpriteUVBorder(frontend_sprites[20], 0.5)
+	frontend_sprites[21] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[21] )
+	SetSpritePosition(frontend_sprites[21],528.000000,352.000000)
+	SetSpriteSize(frontend_sprites[21],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[21],5000)
+	SetSpriteAnimation(frontend_sprites[21],32,32,48)
+	SetSpriteFrame(frontend_sprites[21],25)
+	SetSpriteUVBorder(frontend_sprites[21], 0.5)
+	frontend_sprites[22] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[22] )
+	SetSpritePosition(frontend_sprites[22],544.000000,352.000000)
+	SetSpriteSize(frontend_sprites[22],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[22],5000)
+	SetSpriteAnimation(frontend_sprites[22],32,32,48)
+	SetSpriteFrame(frontend_sprites[22],25)
+	SetSpriteUVBorder(frontend_sprites[22], 0.5)
+	frontend_sprites[23] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[23] )
+	SetSpritePosition(frontend_sprites[23],560.000000,352.000000)
+	SetSpriteSize(frontend_sprites[23],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[23],5000)
+	SetSpriteAnimation(frontend_sprites[23],32,32,48)
+	SetSpriteFrame(frontend_sprites[23],25)
+	SetSpriteUVBorder(frontend_sprites[23], 0.5)
+	frontend_sprites[24] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[24] )
+	SetSpritePosition(frontend_sprites[24],576.000000,352.000000)
+	SetSpriteSize(frontend_sprites[24],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[24],5000)
+	SetSpriteAnimation(frontend_sprites[24],32,32,48)
+	SetSpriteFrame(frontend_sprites[24],25)
+	SetSpriteUVBorder(frontend_sprites[24], 0.5)
+	frontend_sprites[25] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[25] )
+	SetSpritePosition(frontend_sprites[25],592.000000,352.000000)
+	SetSpriteSize(frontend_sprites[25],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[25],5000)
+	SetSpriteAnimation(frontend_sprites[25],32,32,48)
+	SetSpriteFrame(frontend_sprites[25],25)
+	SetSpriteUVBorder(frontend_sprites[25], 0.5)
+	frontend_sprites[26] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[26] )
+	SetSpritePosition(frontend_sprites[26],608.000000,352.000000)
+	SetSpriteSize(frontend_sprites[26],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[26],5000)
+	SetSpriteAnimation(frontend_sprites[26],32,32,48)
+	SetSpriteFrame(frontend_sprites[26],25)
+	SetSpriteUVBorder(frontend_sprites[26], 0.5)
+	frontend_sprites[27] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[27] )
+	SetSpritePosition(frontend_sprites[27],624.000000,352.000000)
+	SetSpriteSize(frontend_sprites[27],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[27],5000)
+	SetSpriteAnimation(frontend_sprites[27],32,32,48)
+	SetSpriteFrame(frontend_sprites[27],25)
+	SetSpriteUVBorder(frontend_sprites[27], 0.5)
+	frontend_sprites[28] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[28] )
+	SetSpritePosition(frontend_sprites[28],640.000000,352.000000)
+	SetSpriteSize(frontend_sprites[28],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[28],5000)
+	SetSpriteAnimation(frontend_sprites[28],32,32,48)
+	SetSpriteFrame(frontend_sprites[28],25)
+	SetSpriteUVBorder(frontend_sprites[28], 0.5)
+	frontend_sprites[29] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[29] )
+	SetSpritePosition(frontend_sprites[29],656.000000,352.000000)
+	SetSpriteSize(frontend_sprites[29],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[29],5000)
+	SetSpriteAnimation(frontend_sprites[29],32,32,48)
+	SetSpriteFrame(frontend_sprites[29],25)
+	SetSpriteUVBorder(frontend_sprites[29], 0.5)
+	frontend_sprites[30] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[30] )
+	SetSpritePosition(frontend_sprites[30],672.000000,352.000000)
+	SetSpriteSize(frontend_sprites[30],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[30],5000)
+	SetSpriteAnimation(frontend_sprites[30],32,32,48)
+	SetSpriteFrame(frontend_sprites[30],25)
+	SetSpriteUVBorder(frontend_sprites[30], 0.5)
+	frontend_sprites[31] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[31] )
+	SetSpritePosition(frontend_sprites[31],688.000000,352.000000)
+	SetSpriteSize(frontend_sprites[31],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[31],5000)
+	SetSpriteAnimation(frontend_sprites[31],32,32,48)
+	SetSpriteFrame(frontend_sprites[31],25)
+	SetSpriteUVBorder(frontend_sprites[31], 0.5)
+	frontend_sprites[32] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[32] )
+	SetSpritePosition(frontend_sprites[32],704.000000,352.000000)
+	SetSpriteSize(frontend_sprites[32],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[32],5000)
+	SetSpriteAnimation(frontend_sprites[32],32,32,48)
+	SetSpriteFrame(frontend_sprites[32],25)
+	SetSpriteUVBorder(frontend_sprites[32], 0.5)
+	frontend_sprites[33] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[33] )
+	SetSpritePosition(frontend_sprites[33],720.000000,352.000000)
+	SetSpriteSize(frontend_sprites[33],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[33],5000)
+	SetSpriteAnimation(frontend_sprites[33],32,32,48)
+	SetSpriteFrame(frontend_sprites[33],25)
+	SetSpriteUVBorder(frontend_sprites[33], 0.5)
+	frontend_sprites[34] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[34] )
+	SetSpritePosition(frontend_sprites[34],736.000000,352.000000)
+	SetSpriteSize(frontend_sprites[34],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[34],5000)
+	SetSpriteAnimation(frontend_sprites[34],32,32,48)
+	SetSpriteFrame(frontend_sprites[34],25)
+	SetSpriteUVBorder(frontend_sprites[34], 0.5)
+	frontend_sprites[35] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[35] )
+	SetSpritePosition(frontend_sprites[35],736.000000,368.000000)
+	SetSpriteSize(frontend_sprites[35],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[35],5000)
+	SetSpriteAnimation(frontend_sprites[35],32,32,48)
+	SetSpriteFrame(frontend_sprites[35],25)
+	SetSpriteUVBorder(frontend_sprites[35], 0.5)
+	frontend_sprites[36] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[36] )
+	SetSpritePosition(frontend_sprites[36],736.000000,384.000000)
+	SetSpriteSize(frontend_sprites[36],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[36],5000)
+	SetSpriteAnimation(frontend_sprites[36],32,32,48)
+	SetSpriteFrame(frontend_sprites[36],25)
+	SetSpriteUVBorder(frontend_sprites[36], 0.5)
+	frontend_sprites[37] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[37] )
+	SetSpritePosition(frontend_sprites[37],736.000000,400.000000)
+	SetSpriteSize(frontend_sprites[37],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[37],5000)
+	SetSpriteAnimation(frontend_sprites[37],32,32,48)
+	SetSpriteFrame(frontend_sprites[37],25)
+	SetSpriteUVBorder(frontend_sprites[37], 0.5)
+	frontend_sprites[38] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[38] )
+	SetSpritePosition(frontend_sprites[38],736.000000,416.000000)
+	SetSpriteSize(frontend_sprites[38],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[38],5000)
+	SetSpriteAnimation(frontend_sprites[38],32,32,48)
+	SetSpriteFrame(frontend_sprites[38],25)
+	SetSpriteUVBorder(frontend_sprites[38], 0.5)
+	frontend_sprites[39] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[39] )
+	SetSpritePosition(frontend_sprites[39],736.000000,432.000000)
+	SetSpriteSize(frontend_sprites[39],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[39],5000)
+	SetSpriteAnimation(frontend_sprites[39],32,32,48)
+	SetSpriteFrame(frontend_sprites[39],25)
+	SetSpriteUVBorder(frontend_sprites[39], 0.5)
+	frontend_sprites[40] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[40] )
+	SetSpritePosition(frontend_sprites[40],736.000000,448.000000)
+	SetSpriteSize(frontend_sprites[40],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[40],5000)
+	SetSpriteAnimation(frontend_sprites[40],32,32,48)
+	SetSpriteFrame(frontend_sprites[40],25)
+	SetSpriteUVBorder(frontend_sprites[40], 0.5)
+	frontend_sprites[41] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[41] )
+	SetSpritePosition(frontend_sprites[41],736.000000,464.000000)
+	SetSpriteSize(frontend_sprites[41],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[41],5000)
+	SetSpriteAnimation(frontend_sprites[41],32,32,48)
+	SetSpriteFrame(frontend_sprites[41],25)
+	SetSpriteUVBorder(frontend_sprites[41], 0.5)
+	frontend_sprites[42] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[42] )
+	SetSpritePosition(frontend_sprites[42],736.000000,480.000000)
+	SetSpriteSize(frontend_sprites[42],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[42],5000)
+	SetSpriteAnimation(frontend_sprites[42],32,32,48)
+	SetSpriteFrame(frontend_sprites[42],25)
+	SetSpriteUVBorder(frontend_sprites[42], 0.5)
+	frontend_sprites[43] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[43] )
+	SetSpritePosition(frontend_sprites[43],736.000000,496.000000)
+	SetSpriteSize(frontend_sprites[43],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[43],5000)
+	SetSpriteAnimation(frontend_sprites[43],32,32,48)
+	SetSpriteFrame(frontend_sprites[43],25)
+	SetSpriteUVBorder(frontend_sprites[43], 0.5)
+	frontend_sprites[44] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[44] )
+	SetSpritePosition(frontend_sprites[44],736.000000,512.000000)
+	SetSpriteSize(frontend_sprites[44],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[44],5000)
+	SetSpriteAnimation(frontend_sprites[44],32,32,48)
+	SetSpriteFrame(frontend_sprites[44],25)
+	SetSpriteUVBorder(frontend_sprites[44], 0.5)
+	frontend_sprites[45] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[45] )
+	SetSpritePosition(frontend_sprites[45],736.000000,528.000000)
+	SetSpriteSize(frontend_sprites[45],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[45],5000)
+	SetSpriteAnimation(frontend_sprites[45],32,32,48)
+	SetSpriteFrame(frontend_sprites[45],25)
+	SetSpriteUVBorder(frontend_sprites[45], 0.5)
+	frontend_sprites[46] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[46] )
+	SetSpritePosition(frontend_sprites[46],736.000000,544.000000)
+	SetSpriteSize(frontend_sprites[46],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[46],5000)
+	SetSpriteAnimation(frontend_sprites[46],32,32,48)
+	SetSpriteFrame(frontend_sprites[46],25)
+	SetSpriteUVBorder(frontend_sprites[46], 0.5)
+	frontend_sprites[47] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[47] )
+	SetSpritePosition(frontend_sprites[47],736.000000,560.000000)
+	SetSpriteSize(frontend_sprites[47],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[47],5000)
+	SetSpriteAnimation(frontend_sprites[47],32,32,48)
+	SetSpriteFrame(frontend_sprites[47],25)
+	SetSpriteUVBorder(frontend_sprites[47], 0.5)
+	frontend_sprites[48] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[48] )
+	SetSpritePosition(frontend_sprites[48],736.000000,576.000000)
+	SetSpriteSize(frontend_sprites[48],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[48],5000)
+	SetSpriteAnimation(frontend_sprites[48],32,32,48)
+	SetSpriteFrame(frontend_sprites[48],25)
+	SetSpriteUVBorder(frontend_sprites[48], 0.5)
+	frontend_sprites[49] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[49] )
+	SetSpritePosition(frontend_sprites[49],736.000000,592.000000)
+	SetSpriteSize(frontend_sprites[49],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[49],5000)
+	SetSpriteAnimation(frontend_sprites[49],32,32,48)
+	SetSpriteFrame(frontend_sprites[49],25)
+	SetSpriteUVBorder(frontend_sprites[49], 0.5)
+	frontend_sprites[50] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[50] )
+	SetSpritePosition(frontend_sprites[50],208.000000,592.000000)
+	SetSpriteSize(frontend_sprites[50],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[50],5000)
+	SetSpriteAnimation(frontend_sprites[50],32,32,48)
+	SetSpriteFrame(frontend_sprites[50],25)
+	SetSpriteUVBorder(frontend_sprites[50], 0.5)
+	frontend_sprites[51] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[51] )
+	SetSpritePosition(frontend_sprites[51],224.000000,592.000000)
+	SetSpriteSize(frontend_sprites[51],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[51],5000)
+	SetSpriteAnimation(frontend_sprites[51],32,32,48)
+	SetSpriteFrame(frontend_sprites[51],25)
+	SetSpriteUVBorder(frontend_sprites[51], 0.5)
+	frontend_sprites[52] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[52] )
+	SetSpritePosition(frontend_sprites[52],240.000000,592.000000)
+	SetSpriteSize(frontend_sprites[52],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[52],5000)
+	SetSpriteAnimation(frontend_sprites[52],32,32,48)
+	SetSpriteFrame(frontend_sprites[52],25)
+	SetSpriteUVBorder(frontend_sprites[52], 0.5)
+	frontend_sprites[53] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[53] )
+	SetSpritePosition(frontend_sprites[53],256.000000,592.000000)
+	SetSpriteSize(frontend_sprites[53],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[53],5000)
+	SetSpriteAnimation(frontend_sprites[53],32,32,48)
+	SetSpriteFrame(frontend_sprites[53],25)
+	SetSpriteUVBorder(frontend_sprites[53], 0.5)
+	frontend_sprites[54] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[54] )
+	SetSpritePosition(frontend_sprites[54],272.000000,592.000000)
+	SetSpriteSize(frontend_sprites[54],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[54],5000)
+	SetSpriteAnimation(frontend_sprites[54],32,32,48)
+	SetSpriteFrame(frontend_sprites[54],25)
+	SetSpriteUVBorder(frontend_sprites[54], 0.5)
+	frontend_sprites[55] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[55] )
+	SetSpritePosition(frontend_sprites[55],288.000000,592.000000)
+	SetSpriteSize(frontend_sprites[55],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[55],5000)
+	SetSpriteAnimation(frontend_sprites[55],32,32,48)
+	SetSpriteFrame(frontend_sprites[55],25)
+	SetSpriteUVBorder(frontend_sprites[55], 0.5)
+	frontend_sprites[56] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[56] )
+	SetSpritePosition(frontend_sprites[56],304.000000,592.000000)
+	SetSpriteSize(frontend_sprites[56],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[56],5000)
+	SetSpriteAnimation(frontend_sprites[56],32,32,48)
+	SetSpriteFrame(frontend_sprites[56],25)
+	SetSpriteUVBorder(frontend_sprites[56], 0.5)
+	frontend_sprites[57] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[57] )
+	SetSpritePosition(frontend_sprites[57],320.000000,592.000000)
+	SetSpriteSize(frontend_sprites[57],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[57],5000)
+	SetSpriteAnimation(frontend_sprites[57],32,32,48)
+	SetSpriteFrame(frontend_sprites[57],25)
+	SetSpriteUVBorder(frontend_sprites[57], 0.5)
+	frontend_sprites[58] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[58] )
+	SetSpritePosition(frontend_sprites[58],336.000000,592.000000)
+	SetSpriteSize(frontend_sprites[58],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[58],5000)
+	SetSpriteAnimation(frontend_sprites[58],32,32,48)
+	SetSpriteFrame(frontend_sprites[58],25)
+	SetSpriteUVBorder(frontend_sprites[58], 0.5)
+	frontend_sprites[59] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[59] )
+	SetSpritePosition(frontend_sprites[59],352.000000,592.000000)
+	SetSpriteSize(frontend_sprites[59],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[59],5000)
+	SetSpriteAnimation(frontend_sprites[59],32,32,48)
+	SetSpriteFrame(frontend_sprites[59],25)
+	SetSpriteUVBorder(frontend_sprites[59], 0.5)
+	frontend_sprites[60] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[60] )
+	SetSpritePosition(frontend_sprites[60],368.000000,592.000000)
+	SetSpriteSize(frontend_sprites[60],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[60],5000)
+	SetSpriteAnimation(frontend_sprites[60],32,32,48)
+	SetSpriteFrame(frontend_sprites[60],25)
+	SetSpriteUVBorder(frontend_sprites[60], 0.5)
+	frontend_sprites[61] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[61] )
+	SetSpritePosition(frontend_sprites[61],384.000000,592.000000)
+	SetSpriteSize(frontend_sprites[61],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[61],5000)
+	SetSpriteAnimation(frontend_sprites[61],32,32,48)
+	SetSpriteFrame(frontend_sprites[61],25)
+	SetSpriteUVBorder(frontend_sprites[61], 0.5)
+	frontend_sprites[62] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[62] )
+	SetSpritePosition(frontend_sprites[62],400.000000,592.000000)
+	SetSpriteSize(frontend_sprites[62],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[62],5000)
+	SetSpriteAnimation(frontend_sprites[62],32,32,48)
+	SetSpriteFrame(frontend_sprites[62],25)
+	SetSpriteUVBorder(frontend_sprites[62], 0.5)
+	frontend_sprites[63] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[63] )
+	SetSpritePosition(frontend_sprites[63],416.000000,592.000000)
+	SetSpriteSize(frontend_sprites[63],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[63],5000)
+	SetSpriteAnimation(frontend_sprites[63],32,32,48)
+	SetSpriteFrame(frontend_sprites[63],25)
+	SetSpriteUVBorder(frontend_sprites[63], 0.5)
+	frontend_sprites[64] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[64] )
+	SetSpritePosition(frontend_sprites[64],432.000000,592.000000)
+	SetSpriteSize(frontend_sprites[64],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[64],5000)
+	SetSpriteAnimation(frontend_sprites[64],32,32,48)
+	SetSpriteFrame(frontend_sprites[64],25)
+	SetSpriteUVBorder(frontend_sprites[64], 0.5)
+	frontend_sprites[65] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[65] )
+	SetSpritePosition(frontend_sprites[65],448.000000,592.000000)
+	SetSpriteSize(frontend_sprites[65],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[65],5000)
+	SetSpriteAnimation(frontend_sprites[65],32,32,48)
+	SetSpriteFrame(frontend_sprites[65],25)
+	SetSpriteUVBorder(frontend_sprites[65], 0.5)
+	frontend_sprites[66] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[66] )
+	SetSpritePosition(frontend_sprites[66],464.000000,592.000000)
+	SetSpriteSize(frontend_sprites[66],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[66],5000)
+	SetSpriteAnimation(frontend_sprites[66],32,32,48)
+	SetSpriteFrame(frontend_sprites[66],25)
+	SetSpriteUVBorder(frontend_sprites[66], 0.5)
+	frontend_sprites[67] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[67] )
+	SetSpritePosition(frontend_sprites[67],480.000000,592.000000)
+	SetSpriteSize(frontend_sprites[67],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[67],5000)
+	SetSpriteAnimation(frontend_sprites[67],32,32,48)
+	SetSpriteFrame(frontend_sprites[67],25)
+	SetSpriteUVBorder(frontend_sprites[67], 0.5)
+	frontend_sprites[68] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[68] )
+	SetSpritePosition(frontend_sprites[68],496.000000,592.000000)
+	SetSpriteSize(frontend_sprites[68],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[68],5000)
+	SetSpriteAnimation(frontend_sprites[68],32,32,48)
+	SetSpriteFrame(frontend_sprites[68],25)
+	SetSpriteUVBorder(frontend_sprites[68], 0.5)
+	frontend_sprites[69] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[69] )
+	SetSpritePosition(frontend_sprites[69],512.000000,592.000000)
+	SetSpriteSize(frontend_sprites[69],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[69],5000)
+	SetSpriteAnimation(frontend_sprites[69],32,32,48)
+	SetSpriteFrame(frontend_sprites[69],25)
+	SetSpriteUVBorder(frontend_sprites[69], 0.5)
+	frontend_sprites[70] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[70] )
+	SetSpritePosition(frontend_sprites[70],528.000000,592.000000)
+	SetSpriteSize(frontend_sprites[70],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[70],5000)
+	SetSpriteAnimation(frontend_sprites[70],32,32,48)
+	SetSpriteFrame(frontend_sprites[70],25)
+	SetSpriteUVBorder(frontend_sprites[70], 0.5)
+	frontend_sprites[71] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[71] )
+	SetSpritePosition(frontend_sprites[71],544.000000,592.000000)
+	SetSpriteSize(frontend_sprites[71],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[71],5000)
+	SetSpriteAnimation(frontend_sprites[71],32,32,48)
+	SetSpriteFrame(frontend_sprites[71],25)
+	SetSpriteUVBorder(frontend_sprites[71], 0.5)
+	frontend_sprites[72] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[72] )
+	SetSpritePosition(frontend_sprites[72],560.000000,592.000000)
+	SetSpriteSize(frontend_sprites[72],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[72],5000)
+	SetSpriteAnimation(frontend_sprites[72],32,32,48)
+	SetSpriteFrame(frontend_sprites[72],25)
+	SetSpriteUVBorder(frontend_sprites[72], 0.5)
+	frontend_sprites[73] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[73] )
+	SetSpritePosition(frontend_sprites[73],576.000000,592.000000)
+	SetSpriteSize(frontend_sprites[73],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[73],5000)
+	SetSpriteAnimation(frontend_sprites[73],32,32,48)
+	SetSpriteFrame(frontend_sprites[73],25)
+	SetSpriteUVBorder(frontend_sprites[73], 0.5)
+	frontend_sprites[74] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[74] )
+	SetSpritePosition(frontend_sprites[74],592.000000,592.000000)
+	SetSpriteSize(frontend_sprites[74],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[74],5000)
+	SetSpriteAnimation(frontend_sprites[74],32,32,48)
+	SetSpriteFrame(frontend_sprites[74],25)
+	SetSpriteUVBorder(frontend_sprites[74], 0.5)
+	frontend_sprites[75] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[75] )
+	SetSpritePosition(frontend_sprites[75],608.000000,592.000000)
+	SetSpriteSize(frontend_sprites[75],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[75],5000)
+	SetSpriteAnimation(frontend_sprites[75],32,32,48)
+	SetSpriteFrame(frontend_sprites[75],25)
+	SetSpriteUVBorder(frontend_sprites[75], 0.5)
+	frontend_sprites[76] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[76] )
+	SetSpritePosition(frontend_sprites[76],624.000000,592.000000)
+	SetSpriteSize(frontend_sprites[76],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[76],5000)
+	SetSpriteAnimation(frontend_sprites[76],32,32,48)
+	SetSpriteFrame(frontend_sprites[76],25)
+	SetSpriteUVBorder(frontend_sprites[76], 0.5)
+	frontend_sprites[77] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[77] )
+	SetSpritePosition(frontend_sprites[77],640.000000,592.000000)
+	SetSpriteSize(frontend_sprites[77],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[77],5000)
+	SetSpriteAnimation(frontend_sprites[77],32,32,48)
+	SetSpriteFrame(frontend_sprites[77],25)
+	SetSpriteUVBorder(frontend_sprites[77], 0.5)
+	frontend_sprites[78] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[78] )
+	SetSpritePosition(frontend_sprites[78],656.000000,592.000000)
+	SetSpriteSize(frontend_sprites[78],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[78],5000)
+	SetSpriteAnimation(frontend_sprites[78],32,32,48)
+	SetSpriteFrame(frontend_sprites[78],25)
+	SetSpriteUVBorder(frontend_sprites[78], 0.5)
+	frontend_sprites[79] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[79] )
+	SetSpritePosition(frontend_sprites[79],672.000000,592.000000)
+	SetSpriteSize(frontend_sprites[79],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[79],5000)
+	SetSpriteAnimation(frontend_sprites[79],32,32,48)
+	SetSpriteFrame(frontend_sprites[79],25)
+	SetSpriteUVBorder(frontend_sprites[79], 0.5)
+	frontend_sprites[80] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[80] )
+	SetSpritePosition(frontend_sprites[80],688.000000,592.000000)
+	SetSpriteSize(frontend_sprites[80],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[80],5000)
+	SetSpriteAnimation(frontend_sprites[80],32,32,48)
+	SetSpriteFrame(frontend_sprites[80],25)
+	SetSpriteUVBorder(frontend_sprites[80], 0.5)
+	frontend_sprites[81] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[81] )
+	SetSpritePosition(frontend_sprites[81],704.000000,592.000000)
+	SetSpriteSize(frontend_sprites[81],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[81],5000)
+	SetSpriteAnimation(frontend_sprites[81],32,32,48)
+	SetSpriteFrame(frontend_sprites[81],25)
+	SetSpriteUVBorder(frontend_sprites[81], 0.5)
+	frontend_sprites[82] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[82] )
+	SetSpritePosition(frontend_sprites[82],720.000000,592.000000)
+	SetSpriteSize(frontend_sprites[82],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[82],5000)
+	SetSpriteAnimation(frontend_sprites[82],32,32,48)
+	SetSpriteFrame(frontend_sprites[82],25)
+	SetSpriteUVBorder(frontend_sprites[82], 0.5)
+	frontend_sprites[83] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[83] )
+	SetSpritePosition(frontend_sprites[83],208.000000,576.000000)
+	SetSpriteSize(frontend_sprites[83],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[83],5000)
+	SetSpriteAnimation(frontend_sprites[83],32,32,48)
+	SetSpriteFrame(frontend_sprites[83],25)
+	SetSpriteUVBorder(frontend_sprites[83], 0.5)
+	frontend_sprites[84] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[84] )
+	SetSpritePosition(frontend_sprites[84],208.000000,560.000000)
+	SetSpriteSize(frontend_sprites[84],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[84],5000)
+	SetSpriteAnimation(frontend_sprites[84],32,32,48)
+	SetSpriteFrame(frontend_sprites[84],25)
+	SetSpriteUVBorder(frontend_sprites[84], 0.5)
+	frontend_sprites[85] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[85] )
+	SetSpritePosition(frontend_sprites[85],208.000000,544.000000)
+	SetSpriteSize(frontend_sprites[85],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[85],5000)
+	SetSpriteAnimation(frontend_sprites[85],32,32,48)
+	SetSpriteFrame(frontend_sprites[85],25)
+	SetSpriteUVBorder(frontend_sprites[85], 0.5)
+	frontend_sprites[86] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[86] )
+	SetSpritePosition(frontend_sprites[86],208.000000,528.000000)
+	SetSpriteSize(frontend_sprites[86],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[86],5000)
+	SetSpriteAnimation(frontend_sprites[86],32,32,48)
+	SetSpriteFrame(frontend_sprites[86],25)
+	SetSpriteUVBorder(frontend_sprites[86], 0.5)
+	frontend_sprites[87] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[87] )
+	SetSpritePosition(frontend_sprites[87],208.000000,512.000000)
+	SetSpriteSize(frontend_sprites[87],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[87],5000)
+	SetSpriteAnimation(frontend_sprites[87],32,32,48)
+	SetSpriteFrame(frontend_sprites[87],25)
+	SetSpriteUVBorder(frontend_sprites[87], 0.5)
+	frontend_sprites[88] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[88] )
+	SetSpritePosition(frontend_sprites[88],208.000000,496.000000)
+	SetSpriteSize(frontend_sprites[88],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[88],5000)
+	SetSpriteAnimation(frontend_sprites[88],32,32,48)
+	SetSpriteFrame(frontend_sprites[88],25)
+	SetSpriteUVBorder(frontend_sprites[88], 0.5)
+	frontend_sprites[89] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[89] )
+	SetSpritePosition(frontend_sprites[89],208.000000,480.000000)
+	SetSpriteSize(frontend_sprites[89],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[89],5000)
+	SetSpriteAnimation(frontend_sprites[89],32,32,48)
+	SetSpriteFrame(frontend_sprites[89],25)
+	SetSpriteUVBorder(frontend_sprites[89], 0.5)
+	frontend_sprites[90] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[90] )
+	SetSpritePosition(frontend_sprites[90],208.000000,464.000000)
+	SetSpriteSize(frontend_sprites[90],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[90],5000)
+	SetSpriteAnimation(frontend_sprites[90],32,32,48)
+	SetSpriteFrame(frontend_sprites[90],25)
+	SetSpriteUVBorder(frontend_sprites[90], 0.5)
+	frontend_sprites[91] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[91] )
+	SetSpritePosition(frontend_sprites[91],208.000000,448.000000)
+	SetSpriteSize(frontend_sprites[91],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[91],5000)
+	SetSpriteAnimation(frontend_sprites[91],32,32,48)
+	SetSpriteFrame(frontend_sprites[91],25)
+	SetSpriteUVBorder(frontend_sprites[91], 0.5)
+	frontend_sprites[92] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[92] )
+	SetSpritePosition(frontend_sprites[92],208.000000,432.000000)
+	SetSpriteSize(frontend_sprites[92],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[92],5000)
+	SetSpriteAnimation(frontend_sprites[92],32,32,48)
+	SetSpriteFrame(frontend_sprites[92],25)
+	SetSpriteUVBorder(frontend_sprites[92], 0.5)
+	frontend_sprites[93] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[93] )
+	SetSpritePosition(frontend_sprites[93],208.000000,416.000000)
+	SetSpriteSize(frontend_sprites[93],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[93],5000)
+	SetSpriteAnimation(frontend_sprites[93],32,32,48)
+	SetSpriteFrame(frontend_sprites[93],25)
+	SetSpriteUVBorder(frontend_sprites[93], 0.5)
+	frontend_sprites[94] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[94] )
+	SetSpritePosition(frontend_sprites[94],208.000000,400.000000)
+	SetSpriteSize(frontend_sprites[94],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[94],5000)
+	SetSpriteAnimation(frontend_sprites[94],32,32,48)
+	SetSpriteFrame(frontend_sprites[94],25)
+	SetSpriteUVBorder(frontend_sprites[94], 0.5)
+	frontend_sprites[95] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[95] )
+	SetSpritePosition(frontend_sprites[95],208.000000,384.000000)
+	SetSpriteSize(frontend_sprites[95],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[95],5000)
+	SetSpriteAnimation(frontend_sprites[95],32,32,48)
+	SetSpriteFrame(frontend_sprites[95],25)
+	SetSpriteUVBorder(frontend_sprites[95], 0.5)
+	frontend_sprites[96] = CreateSprite( frontend_images[1] )
+	frontend_lights.insert( frontend_sprites[96] )
+	SetSpritePosition(frontend_sprites[96],208.000000,368.000000)
+	SetSpriteSize(frontend_sprites[96],16.000000,16.000000)
+	SetSpriteDepth(frontend_sprites[96],5000)
+	SetSpriteAnimation(frontend_sprites[96],32,32,48)
+	SetSpriteFrame(frontend_sprites[96],25)
+	SetSpriteUVBorder(frontend_sprites[96], 0.5)
+endfunction
+
+function frontend_sync()
+	if frontend_loaded = 0 then frontend_setup()
+	frontend_tween# = 60/(1.0/GetFrameTime())
+endfunction
+
+function frontend_cleanup()
+	local i as integer
+	if frontend_loaded = 0 then exitfunction
+	for i = 0 to frontend_sprites.length
+		if GetSpriteExists( frontend_sprites[i] ) then DeleteSprite( frontend_sprites[i] )
+	next i
+		if GetSpriteExists(frontend_fadesprite) then DeleteSprite(frontend_fadesprite)
+		frontend_fadesprite = 0
+		if GetImageExists(frontend_fadeimage) then DeleteImage(frontend_fadeimage)
+	for i = 0 to frontend_images.length
+		if GetImageExists( frontend_images[i] ) then DeleteImage( frontend_images[i] )
+	next i
+	frontend_lights.length = -1
+	frontend_loaded = 0
+endfunction
+
+function frontend_fade( percent as float )
+	local fMul as float
+	local i as integer
+	fMul = percent / 100.0
+	if fMul > 1.0 then fMul = 1.0
+	if fMul < 0.0 then fMul = 0.0
+	if fMul = 1.0
+		if GetSpriteExists(frontend_fadesprite) then DeleteSprite(frontend_fadesprite)
+		frontend_fadesprite = 0
+		if GetImageExists(frontend_fadeimage) then DeleteImage(frontend_fadeimage)
+		exitfunction
+	endif
+	if frontend_loaded = 0 then frontend_setup()
+	if not GetSpriteExists( frontend_fadesprite )
+		frontend_fadeimage = CreateImageColor(0,0,0,255)
+		frontend_fadesprite = CreateSprite(frontend_fadeimage)
+		SetSpriteDepth(frontend_fadesprite,0)
+		SetSpritePosition(frontend_fadesprite,0,0)
+		SetSpriteSize(frontend_fadesprite,GetDeviceWidth(),GetDeviceHeight())
+	endif
+	SetSpriteColor(frontend_fadesprite,0,0,0,255-255*fMul)
+endfunction
+
+
+REMSTART
+##################################################
+#### Settings: Do not make any changes below. ####
+##################################################
+
+resolution: 896,1152
+scenename: frontend
+gridx: 16.000000
+gridy: 16.000000
+gridon: 1
+sceneresolutiontext: C: 896x1152 (0.78)   Custom 
+screenwidth: 896
+screenheight: 1152
+scenebackr: 0
+scenebackg: 0
+scenebackb: 0
+scenebacka: 255
+followdeviceres: 0
+basewidth: 896
+baseheight: 1152
+scenegravityx: 0.000000
+scenegravityy: 50.000000
+scenewalltop: 1
+scenewallbottom: 1
+scenewallleft: 1
+scenewallright: 1
+scenemaxpolygon: 8
+scenepercentage: 0
+imageindex: 1
+addimage: D:/Users/swessels/OneDrive/Develop/AGK/Mr Pac Man/media/base.png
+imageatlas: 1
+imagerows: 16
+imagecolumns: 3
+spriteindex: 1
+addsprite: Sprite 111
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 112
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 224.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 113
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 240.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 120
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 256.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 131
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 272.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 132
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 288.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 133
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 304.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 134
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 320.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 135
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 336.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 136
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 352.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 137
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 368.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 139
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 384.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 215
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 400.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 216
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 416.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 220
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 432.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 221
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 448.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 223
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 464.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 224
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 480.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 225
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 496.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 226
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 512.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 227
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 528.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 228
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 544.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 229
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 560.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 230
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 576.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 231
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 592.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 232
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 608.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 233
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 624.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 234
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 640.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 235
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 656.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 236
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 672.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 237
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 688.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 238
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 704.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 239
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 720.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 240
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 352.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 241
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 368.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 242
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 384.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 243
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 400.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 244
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 416.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 245
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 432.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 246
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 448.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 247
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 464.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 248
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 480.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 249
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 496.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 250
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 512.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 251
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 528.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 252
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 544.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 253
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 560.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 254
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 576.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 255
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 736.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 256
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 257
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 224.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 258
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 240.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 259
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 256.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 260
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 272.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 261
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 288.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 262
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 304.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 263
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 320.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 264
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 336.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 265
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 352.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 266
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 368.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 267
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 384.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 268
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 400.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 269
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 416.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 270
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 432.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 271
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 448.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 272
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 464.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 273
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 480.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 274
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 496.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 275
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 512.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 276
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 528.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 277
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 544.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 278
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 560.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 279
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 576.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 280
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 592.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 281
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 608.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 282
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 624.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 283
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 640.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 284
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 656.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 285
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 672.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 286
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 688.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 287
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 704.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 288
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 720.000000
+spriteposy: 592.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 289
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 576.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 290
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 560.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 291
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 544.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 292
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 528.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 293
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 512.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 294
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 496.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 295
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 480.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 296
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 464.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 297
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 448.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 298
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 432.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 299
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 416.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 300
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 400.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 301
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 384.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+spriteindex: 1
+addsprite: Sprite 302
+mediatype: 1
+mediavisible: 1
+spritegroup: frontend_lights
+spriteposx: 208.000000
+spriteposy: 368.000000
+spritesizex: 16.000000
+spritesizey: 16.000000
+spritedepth: 5000
+spriteanimfrom: 25
+spriteanimto: 25
+
+REMEND
